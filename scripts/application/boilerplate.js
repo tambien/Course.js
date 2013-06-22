@@ -35,35 +35,12 @@ function sizeCanvas(){
 //bind all the relevant events
 function bindEvents(){
 	$(window).bind("resize", resize);
-	$(window).bind("mousedown", mousePressed);
-	$(window).bind("mouseup", mouseReleased);
-	$(window).bind("mousemove", mouseMoved);
 }
 
 function resize(){
 	width = $(window).width();
 	height = $(window).height();
 	sizeCanvas();
-}
-
-//MOUSE STUFFS
-
-function mousePressed(event){
-	event.preventDefault();
-	var mouseX = event.pageX;
-	var mouseY = event.pageY;
-}
-
-function mouseReleased(event){
-	event.preventDefault();
-	var mouseX = event.pageX;
-	var mouseY = event.pageY;
-}
-
-function mouseMoved(event){
-	event.preventDefault();
-	var mouseX = event.pageX;
-	var mouseY = event.pageY;
 }
 
 /*=============================================================================
@@ -83,17 +60,4 @@ function setup(){
 function loop(){
 	//calls loop on the next animation frame (about 60fps)
 	requestAnimationFrame(loop);
-	//makeSquare();
-}
-
-function makeSquare(){
-	var x = Math.random()*width;
-	var y = Math.random()*height;
-	context.beginPath();
-	context.rect(x, y, 100, 100);
-	context.fillStyle = 'yellow';
-	context.fill();
-	context.lineWidth = 7;
-	context.strokeStyle = 'black';
-	context.stroke();
 }
