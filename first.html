@@ -1,0 +1,57 @@
+<!-- COMMENT -->
+<!DOCTYPE html>
+<html>
+<head>
+ <!-- PRELOADED STUFF -->
+ <script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+ <script type='text/javascript'>
+ 	$(function(){
+ 		$(".redBackground").click(clickCallback);
+ 	})
+
+ 	function clickCallback(){ 
+		$(".redBackground").animate({
+			width: "1000px",
+			height : "1000px"
+		})
+	}
+ 	 
+ </script>
+</head>
+<body>
+ <!-- BODY OF THE DOCUMENT -->
+<style>
+#textBox{
+	position: absolute;
+	top: 20px;
+	left: 100px;
+	font-size: 100px;
+	width: 100px;
+	height: 100px;
+}
+
+#notTextBox {
+	position: absolute;
+	bottom: 20px;
+	right: 100px;
+	width: 200px;
+	height: 200px;
+	margin-top: 10px;
+}
+.redBackground {
+	background-color: #fd0000;
+}
+</style>
+
+ <div>
+ 	<div id='textBox' class='redBackground'>
+ 		text
+ 	</div>
+ 	<div id='notTextBox' class='redBackground'>
+ 		not text
+ 	</div>
+ </div>
+
+
+</body>
+</html>
