@@ -68,9 +68,10 @@ function loop(){
 	//calls loop on the next animation frame (about 60fps)
 	requestAnimationFrame(loop);
 	context.clearRect(0, 0, width, height);
-	drawRandomArc();
+	//drawRandomArc();
 	//drawRandomLine();
 	//drawRandomRect();
+	drawRandomCurve();
 }
 
 function drawRandomRect(){
@@ -129,4 +130,27 @@ function drawRandomArc(){
 	context.fillStyle = "rgba(0, 0, 255, "+randOpacity+")";
 	//fill / close the path
 	context.fill();
+}
+
+
+function drawRandomCurve(){
+	//everything start with begin path
+	context.beginPath();
+	//pick a random start position
+	var startingX = RANDOM.getInt(0, width);
+	var startingY = RANDOM.getInt(0, height);
+	context.moveTo(startingX, startingY);
+	//put 20 segments in the line
+	for (var i = 0; i < 20; i++){
+		//get a random x and y the size of the screen
+		var randX = RANDOM.getInt(0, width);
+		var randY = RANDOM.getInt(0, height);
+		var randControlX = RANDOM.getInt(0, width);
+		var randControlY = RANDOM.getInt(0, height);
+		context.quadraticCurveTo(randX, randY, randControlX, randControlY);
+	}
+	var randOpacity = RANDOM.getFloat();
+	context.lineWidth = 4;
+	context.strokeStyle = "rgba(0, 0, 255, " + randOpacity + ")"; 
+	context.stroke();
 }
