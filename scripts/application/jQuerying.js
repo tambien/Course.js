@@ -1,6 +1,7 @@
 //START HERE
 $(function(){
 	console.log("jQuerying application running");
+	$(".redBackground").click(clickCallback);
 	setInterval(loop, 1000);
 });
 
@@ -14,4 +15,8 @@ function loop(){
 	var randomWord = brokenText[randomSpot];
 	//asign contents of #notTextBox to randomWord
 	$("#notTextBox").html(randomWord);
+}
+
+function clickCallback(){
+	alert("hi");
 }
