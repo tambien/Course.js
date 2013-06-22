@@ -1,7 +1,7 @@
 //START HERE
 $(function(){
 	console.log("jQuerying application running");
-	$(".redBackground").click(clickCallback);
+	$(".redBackground").bind("click", clickCallback);
 	setInterval(loop, 1000);
 });
 
