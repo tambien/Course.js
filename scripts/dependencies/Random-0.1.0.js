@@ -1,130 +1,8 @@
 /*
-
-	RANDOM v0.2.0
-
-	{
-		min : 0,
-		max : 1,
-		distribution : 'uniform' | 'guassian' 
-		sigma : .5,
-		mean : .5,
-		toInt : false,
-		returnType : 'number' | 'array' | 'string'
-		length : 100,
-	}
+	RANDOM v 0.1.0
 */
 
-(function() {
-
-	function defaults(args){
-		if (typeof args !== 'object'){
-			args = {};
-		} 
-		var defs = {
-			min : 0,
-			max : 1,
-			distribution : 'uniform',
-			sigma : .5,
-			mean : .5,
-			toInt : false,
-			returnType : 'number',
-			returnLength : 10,
-		};
-		for (var prop in defs) {
-			if (args[prop] == null) {
-				args[prop] = defs[prop];
-			}
-		}
-		return args;
-	}
-
-	function getRandomNumber(args){
-		//scale it
-		min = args.min;
-		max = args.max;
-		//if there is only one arg, that's the max
-		var rando = min + random() * (max - min);
-		if (args.toInt){
-			rando = ~~rando;
-		}	
-		return rando;
-	}
-
-	function getRandomArray(args){
-		var rando = [];
-		for (var i = 0; i < args.returnLength; i++){
-			rando.push(getRandomNumber(args));
-		}
-		return rando;
-	}
-
-	function getRandomString(args){
-		var rando = "";
-		var alphaNumeric = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-		for (var i = 0; i < args.returnLength; i++){
-			
-		}
-		return rando;
-	}
-
-	
-	var RANDOM = function(){
-		var args = parseArguments(Array.prototype.slice.call(arguments));
-		args = defaults(args);
-		if (args.returnType === 'number'){
-			return getRandomNumber(args);	
-		} else if (args.returnType === 'array'){
-			return getRandomArray(args);
-		} else if (args.returnType === 'string'){
-			return getRandomString(args);
-		} else {
-			return getRandomNumber(args);	
-		}
-		
-	}
-
-	function parseArguments(args){
-		//if there are no args, it's just a default call
-		var ret = {};
-		if (args.length === 0){
-			
-		//one argument
-		} else if (args.length === 1){
-			var oneArg = args[0];
-			//could be either an object defining the parameters
-			if (typeof oneArg === 'object'){
-				ret = oneArg;
-			//or a number defining the max
-			} else if (typeof oneArg === 'number'){
-				ret.max = oneArg;
-			//else just go with the default
-			} else {
-				
-			}
-		//if there are two args, assume that its the low and the high range
-		} else if (args.length === 2){
-			var firstArg = args[0];
-			var secondArg = args[1];
-			if (typeof firstArg === 'number' && typeof secondArg === 'number'){
-				ret.min = firstArg;
-				ret.max = secondArg;
-			}
-		}
-		return ret;
-	}
-
-	window.RANDOM = RANDOM;
-
-
-	function distribute(distribution){
-
-	}
-
-	function uniform(value, min, max){
-
-	}
-
-
+var RANDOM = function() {
 	// From http://baagoe.com/en/RandomMusings/javascript/
 	// Johannes BaagÃ¸e <baagoe@baagoe.com>, 2010
 	function Mash() {
@@ -272,7 +150,7 @@
 		return flipCoin() ? a : b;
 	}
 	//API//////////////////////////////////////////////////////////////////////
-	/*
+
 	return {
 		choose : choose,
 		shuffle : shuffleArray,
@@ -281,5 +159,4 @@
 		getFloat : randomFloat,
 		or : pickWhich,
 	}
-	*/
-}());
+}();
