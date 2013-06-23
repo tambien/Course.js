@@ -6,7 +6,6 @@ var Shape = function(){
 		r : 0,
 		b : 255,
 		g : 0
-		
 	}
 }
 
