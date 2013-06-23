@@ -68,9 +68,9 @@ function loop(){
 	//calls loop on the next animation frame (about 60fps)
 	requestAnimationFrame(loop);
 	context.clearRect(0, 0, width, height);
-	//drawRandomArc();
-	//drawRandomLine();
-	//drawRandomRect();
+	drawRandomArc();
+	drawRandomLine();
+	drawRandomRect();
 	drawRandomCurve();
 }
 
