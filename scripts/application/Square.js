@@ -35,5 +35,6 @@ Square.prototype.update = function(){
 	this.frameCount++;
 	if (this.frameCount === 100){
 		this.move();
+		this.frameCount = 0;
 	}
 }
